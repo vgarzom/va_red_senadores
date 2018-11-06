@@ -94,6 +94,7 @@ function loadProjects() {
         data = { nodes: nodes, links: links }
         console.log(nodes);
         drawNetworkChart(data);
+        createTooltip(svg);
     });
 
     /*

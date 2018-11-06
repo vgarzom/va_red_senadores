@@ -35,23 +35,6 @@
                                         Medicamentos incluidos en el POS
                                     </div>
                                     <div class="card-block">
-                                        <div class="clr-form-control">
-                                            <label class="clr-control-label">Cómo deseas agrupar los medicamentos?</label>
-                                            <div class="clr-control-container clr-control-inline">
-                                                <div class="clr-radio-wrapper">
-                                                    <input type="radio" id="radio-principioactivo" name="radio-distribution"
-                                                        value="principioactivo" class="clr-radio" checked>
-                                                    <label for="radio-principioactivo" class="clr-control-label">Por
-                                                        principio activo (pa)</label>
-                                                </div>
-                                                <div class="clr-radio-wrapper">
-                                                    <input type="radio" id="radio-forma" name="radio-distribution"
-                                                        value="forma" class="clr-radio">
-                                                    <label for="radio-forma" class="clr-control-label">Por forma
-                                                        farmacéutica (ff)</label>
-                                                </div>
-                                            </div>
-                                        </div>
                                         <div id="vis-container">
 
                                         </div>
@@ -69,18 +52,18 @@
                                 </ul>
                                 <section id="panel1" role="tabpanel" aria-labelledby="tab1">
                                     <ul class="list">
-                                        <li><b>El POS no incluye tantos medicamentos como dice:</b>
-                                            Normalmente las EPS presentan un listado de medicamentos incluidos en el
-                                            POS que es amplio y extenso pero este listado no viene categorizado. Lo que
-                                            vemos en la visualización es que al agrupar los medicamentos por principio
-                                            activo el listado disminuye de 738 medicamentos a tan solo 451. El mismo
-                                            acetaminofen en 3 presentaciones no cuenta como tres medicamentos distintos</li>
-                                        <li><b>El POS maneja aproximadamente 58 formas farmacéuticas.</b> Este dato no
-                                            podemos decir que sea exacto porque puede darse el caso de tener la misma
-                                            forma con un nombre diferente. Este dato es importante porque podría
-                                            compararse con diferentes planes de salud en otros paises e identificar si
-                                            se cuentan con todas las formas necesarias para suministrar medicamentos de
-                                            la forma requerida por la comunidad.</li>
+                                        <li><b>Un par de partidos muestran ser muy unidos:</b>
+                                            Es indiscutible que el Centro democrático y el partido conservador parecen
+                                            ser los más unidos, tal vez porque giren entorno a una única persona cada
+                                            uno o porque de verdad tienen un plan maligno para conquistar al mundo. Sea
+                                            como sea se les reconoce su unión. Supongo que si todos trabajaran así tan
+                                            de la mano para hacer cosas buenas el país estaría mucho mejor</li>
+                                        <li>La mayoría de senadores parece que les gusta trabajar por su cuenta, todos
+                                            se creen Han Solo, pero considero que la unión hace la fuerza y que si se
+                                            unieran para hacer mejores cosas pues todo estaría mucho mejor</li>
+                                        <li>Partido de la U, cambio radical , partido verde, todos trabajando junticos
+                                            ... Aunque antes dije que la unión hace la fuerza también da un poco de
+                                            temor verlos a todos juntos</li>
                                     </ul>
                                 </section>
 
@@ -88,15 +71,15 @@
                         </div>
                     </div>
                     <div class="clr-col-lg-4 clr-col-md-12 data-abstraction-container">
-                        <h3>Te interesa conocer en qué presentaciones o formas farmacéuticas vienen los distintos
-                            medicamentos incluidos en el POS</h3>
-                        <p><b>El Ministerio de salud y protección social</b> publica periódicamente los medicamentos
-                            que vienen incluidos en el POS (Plan Obligatorio de Salud). Dichos datos se encuentran en
-                            <a href="https://www.datos.gov.co/Salud-y-Protecci-n-Social/Medicamentos-del-POS/e8rk-p7dn">
-                                datos abiertos de Colombia</a> actualizados al 30 de Octubre del 2018. En esta
-                            visualización hemos querido construir un
-                            catálogo que
-                            facilite su consulta.</p>
+                        <h3>Te interesa saber como se agrupan los senadores para trabajar?</h3>
+                        <p><b>Cómo se relacionan nuestros senadores?:</b>
+                            Uno pensaría que los senadores sólo trabajan con su grupito de parceros que
+                            ha de estar en el mismo partido político o bancada o como se llame esa
+                            vaina. Sin embargo, los datos muestran que no siempre es así. Osea mientras
+                            la gente se da en la jeta por defender a uno u otro, ellos allá dentro se
+                            acomodan como mejor les convenga. Hicimos una visualización que enlaza los
+                            senadores de nuestra querida república a partir de los proyectos que hayan
+                            hecho en conjunto y esto es lo que hay.</p>
                         <div class="separator"></div>
 
                         <h3>Abstracción de datos: Framework de Tamara</h3>
@@ -109,14 +92,12 @@
                                 <h4 class="card-title">WHAT</h4>
                                 <p class="card-text">
                                     Los datos se encuentran organizados en items, los cuales son cada uno de los
-                                    medicamentos, acompañado de sus atributos. Adicionalmente existen variables que
-                                    permiten
-                                    agrupar dichos medicamentos, estas variables son el principio activo y la forma
-                                    farmacéutica. De hecho muchas empresas farmacéuticas utilizan la forma farmacéutica
-                                    para identificar nuevas posibilidades de medicamentos. Desde este punto de vista,
-                                    vemos que se trata de un <b>Dataset tipo árbol</b>. Donde las variables de
-                                    principio activo y forma farmacéutica son utilizadas como enlaces que interconectan
-                                    los distintos medicamentos. La siguiente tabla
+                                    proyectos realizados entre 2016 y 2017, un proyecto está "diseñado" por una o mas
+                                    personas (senadores, representantes a la cámara, ministros, etc), de esta manera
+                                    fue posible enlazar distintos senadores a partir de los proyectos realizados en
+                                    conjunto. Desde este punto de vista,
+                                    vemos que se trata de un <b>Dataset tipo red</b>. Donde los nodos son los senadores
+                                    y los enlaces los proyectos que los conectan. La siguiente tabla
                                     resume los atributos que se utilizarán en la visualización:
                                 </p>
                                 <table class="table">
@@ -129,37 +110,26 @@
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <td>principioactivo</td>
-                                            <td class="left">Composición principal del medicamento</td>
+                                            <td>Nombre Senador</td>
+                                            <td class="left">Utilizado como identificador de los nodos</td>
                                             <td class="left">Categórica</td>
                                         </tr>
                                         <tr>
-                                            <td>formafarmaceutica</td>
-                                            <td class="left">Presentación del medicamento</td>
+                                            <td>Partido político</td>
+                                            <td class="left">El partido al cual pertenece un senador</td>
                                             <td class="left">Categórica</td>
                                         </tr>
                                         <tr>
-                                            <td>cantidad</td>
-                                            <td class="left">Qué tanto del medicamento viene presente en una unidad de
-                                                medida</td>
-                                            <td class="left">Ord | Quan | Seq.</td>
+                                            <td>Enlace: derivada</td>
+                                            <td class="left">Relaciona dos senadores entre sí cuando han realizado
+                                                proyectos en conjunto</td>
+                                            <td class="left">categórica</td>
                                         </tr>
                                         <tr>
-                                            <td>unidadmedida</td>
-                                            <td class="left">La unidad en la que viene la presentación Ej: mg, l, g, %</td>
-                                            <td class="left">Categórico</td>
-                                        </tr>
-                                        <tr>
-                                            <td>unidadreferencia</td>
-                                            <td class="left">Referencia adicional para la presentación del medicamento.
-                                                Ej: por cápsula</td>
-                                            <td class="left">Categórico</td>
-                                        </tr>
-                                        <tr>
-                                            <td>descripcion <b>derivado</b></td>
-                                            <td class="left">Atributo derivado al concatenar cantidad + unidadmedida +
-                                                unidadreferencia y utilizado como descripción del medicamento</td>
-                                            <td class="left">Categórico</td>
+                                            <td>Número de proyectos</td>
+                                            <td class="left">La cantidad de proyectos que dos senadores han hecho en
+                                                conjunto</td>
+                                            <td class="left">Ord | seq</td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -186,21 +156,13 @@
                                     <tbody>
                                         <tr>
                                             <td>1</td>
-                                            <td class="left">Vis1: Encontrar en qué formas farmacéuticas viene presente
-                                                un medicamento en el POS</td>
-                                            <td class="left">Browse features</td>
-                                        </tr>
-                                        <tr>
-                                            <td>2</td>
-                                            <td class="left">Vis 2: Encontrar los medicamentos que se entregan en una
-                                                forma farmacéutica dada</td>
-                                            <td class="left">Browse features</td>
+                                            <td class="left">Encontrar relaciones entre dos senadores</td>
+                                            <td class="left">discover paths</td>
                                         </tr>
                                         <tr>
                                             <td>3</td>
-                                            <td class="left">Presentar cómo se encuentran organizados el listado de
-                                                medicamentos incluidos en el POS, tanto en principioactivo como en
-                                                forma farmacéutica</td>
+                                            <td class="left">Presentar como se encuentran organizados los senadores en
+                                                el momento de construir proyectos</td>
                                             <td class="left">Present topology</td>
                                         </tr>
                                     </tbody>
@@ -233,18 +195,18 @@
                                                 <ul class="list">
                                                     <li><b>Spatial: Coordenadas cartesianas</b>
                                                         <ul class="list">
-                                                            <li><b>horizontal:</b> Nivel en el que se encuentra cada
-                                                                nodo <br /> <b>Encode:
-                                                                </b>Separate, order, align</li>
-                                                            <li><b>vertical:</b> Agrupación en orden alfabético,
-                                                                principioactivo y forma farmacéutica<br /> <b>Encode:
-                                                                </b>Separate, order, align</li>
+                                                            <li>En este caso este canal sólo se utiliza para repartir
+                                                                los nodos en la espacio</li>
                                                         </ul>
                                                     </li>
-                                                    <li><b>Color hue:</b> Permite categorizar si un nodo tiene o no
-                                                        tiene hijos <br /> <b>
+                                                    <li><b>Color hue:</b> Permite categorizar los distintos partidos
+                                                        políticos<br /> <b>
                                                             Encode:
                                                         </b>separate</li>
+                                                    <li><b>line weight:</b> Entre más proyectos en conjunto tengan dos
+                                                        senadores mas grueso es su enlace<br /> <b>
+                                                            Encode:
+                                                        </b>express</li>
                                                 </ul>
                                             </td>
                                         </tr>
@@ -258,17 +220,6 @@
                                             </td>
                                         </tr>
 
-                                        <tr>
-                                            <td>Manipulate</td>
-                                            <td class="left">
-                                                <ul class="list">
-                                                    <li><b>Change:</b> Permite cambiar la agrupación por forma
-                                                        farmacéutica o por principio activo.</li>
-                                                    <li><b>Select:</b> Puedo seleccionar un nodo para descubrir sus
-                                                        hijos.</li>
-                                                </ul>
-                                            </td>
-                                        </tr>
                                     </tbody>
                                 </table>
 
@@ -287,10 +238,10 @@
                                 </a>
                             </li>
                         </ul>
-                        <a href="https://github.com/vgarzom/va_medicamentos_pos" class="label label-blue clickable">
+                        <a href="https://github.com/vgarzom/va_red_senadores" class="label label-blue clickable">
                             Github
                         </a>
-                        <a href="https://vgarzom.github.io/va_medicamentos_pos/" class="label label-blue clickable">
+                        <a href="https://vgarzom.github.io/va_red_senadores/" class="label label-blue clickable">
                             Github Pages
                         </a>
                         <div class="separator"></div>

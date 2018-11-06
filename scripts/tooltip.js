@@ -7,9 +7,8 @@ function createTooltip(mysvg) {
     console.log("Appending tooltip");
     tooltip = mysvg.append("g")
         .attr("id", "tooltip")
-        .attr("transform", "translate(-1000,0)")
-        .style("font", "12px sans-serif")
-        .style("z-index", 1000);
+        .attr("transform", "translate(-10000,0)")
+        .style("font", "12px sans-serif");
 
     let tooltip_bg = tooltip.append("rect")
         .attr("x", 0)
@@ -54,33 +53,25 @@ function createTooltip(mysvg) {
         .attr("y", 70);
 }
 
-function updateTooltip(d, sismo) {
+function updateTooltip(d, senador) {
     
-    const year = yearFormat(d.date);
-    var i = 0;
-    for (i = 0; i < years.length; i++) {
-        if (years[i].key === year) {
-            break;
-        }
-    }
 
 
-    var x = sismo.node().getBoundingClientRect().x;
-    if (x + tooltip_size.width > chart_width) {
-        x = sismo.node().getBoundingClientRect().x - tooltip_size.width - 100;
-    }
-    var y = (height * i + cellSize * 1.5) + countDay(d.date) * cellSize - tooltip_size.height / 2;
+    var x = senador.node().getBoundingClientRect().x - width;
+    
+    var y = senador.node().getBoundingClientRect().y - height;
     tooltip.attr("transform", `translate(${x},${y})`);
-    tooltip.select("#tooltip-title").text(d.municipio);
-    tooltip.select("#tooltip-subtitle").text(d.departamento);
-    tooltip.select("#tooltip-magnitude").text(`magnitud: ${d.magnitude}`);
-    tooltip.select("#tooltip-depth").text(`profundidad: ${d.depth}`);
+    tooltip.select("#tooltip-title").text(d.id);
+    tooltip.select("#tooltip-subtitle").text(d.group);
+    //tooltip.select("#tooltip-magnitude").text(`magnitud: ${d.magnitude}`);
+    //tooltip.select("#tooltip-depth").text(`profundidad: ${d.depth}`);
 }
 
 function resetTooltip(d) {
-    var sismo = d3.select(`#sismo_${d.id}`);
+    var id = '#sen-' + d.id.replace(/ /g,"-");
+    var sismo = d3.select(id);
     sismo
         .attr("stroke", "steelblue")
         .attr("stroke-width", 0);
-    tooltip.attr("transform", `translate(-1000,-1000)`);
+    tooltip.attr("transform", `translate(-10000,-10000)`);
 }
